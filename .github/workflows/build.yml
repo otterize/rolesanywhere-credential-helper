@@ -19,3 +19,8 @@ jobs:
       - uses: actions/setup-go@v3
       - name: Build release
         run: make release
+      - uses: actions/upload-artifact@v4
+        if: github.event_name == 'push'
+        with:
+          name: release
+          path: build/bin/*

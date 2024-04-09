@@ -3,10 +3,6 @@ VERSION=1.1.1-otterize
 release:
 	GOARCH=amd64 GOOS=linux CGO_ENABLED=0 go build -buildmode=pie -ldflags "-X 'github.com/aws/rolesanywhere-credential-helper/cmd.Version=${VERSION}' -w -s" -trimpath -o build/bin/aws_signing_helper_amd64 main.go
 	GOARCH=arm64 GOOS=linux CGO_ENABLED=0 go build -buildmode=pie -ldflags "-X 'github.com/aws/rolesanywhere-credential-helper/cmd.Version=${VERSION}' -w -s" -trimpath -o build/bin/aws_signing_helper_arm64 main.go
-	file build/bin/aws_signing_helper_amd64
-	file build/bin/aws_signing_helper_arm64
-	ldd build/bin/aws_signing_helper_amd64
-	ldd build/bin/aws_signing_helper_arm64
 
 # Setting up SoftHSM for PKCS#11 tests. 
 # This portion is largely copied from https://gitlab.com/openconnect/openconnect/-/blob/v9.12/tests/Makefile.am#L363. 
