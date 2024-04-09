@@ -1,2 +1,3 @@
 FROM alpine:3.19
-COPY ./build/bin /rolesanywhere-credential-helper
+ARG TARGETARCH
+COPY ./build/bin/aws_signing_helper_$TARGETARCH /rolesanywhere-credential-helper
