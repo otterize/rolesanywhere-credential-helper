@@ -62,11 +62,7 @@ var readCertificateDataCmd = &cobra.Command{
 		var printFunction PrintCertificate = DefaultPrintCertificate
 
 		if strings.HasPrefix(certificateId, "pkcs11:") {
-			certContainers, err = helper.GetMatchingPKCSCerts(certificateId, libPkcs11)
-			if err != nil {
-				log.Println(err)
-				os.Exit(1)
-			}
+			log.Fatal("PKCS#11 URI is not supported")
 		} else if certificateId != "" {
 			data, err := helper.ReadCertificateData(certificateId)
 			if err != nil {

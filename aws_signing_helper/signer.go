@@ -237,13 +237,7 @@ func GetSigner(opts *CredentialsOpts) (signer Signer, signatureAlgorithm string,
 	}
 
 	if strings.HasPrefix(privateKeyId, "pkcs11:") {
-		if Debug {
-			log.Println("attempting to use PKCS11Signer")
-		}
-		if certificate != nil {
-			opts.CertificateId = ""
-		}
-		return GetPKCS11Signer(opts.LibPkcs11, certificate, certificateChain, opts.PrivateKeyId, opts.CertificateId, opts.ReusePin)
+		return nil, "", errors.New("PKCS#11 not supported")
 	} else {
 		privateKey, err = ReadPrivateKeyData(privateKeyId)
 		if err != nil {
