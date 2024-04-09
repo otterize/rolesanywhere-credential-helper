@@ -1,2 +1,2 @@
-FROM gcr.io/distroless/static:nonroot
+FROM alpine:3.19
 COPY ./build/bin /rolesanywhere-credential-helper
