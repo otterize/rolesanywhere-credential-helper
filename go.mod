@@ -5,8 +5,8 @@ go 1.18
 require (
 	github.com/aws/aws-sdk-go v1.44.57
 	github.com/spf13/cobra v1.6.1
-	golang.org/x/crypto v0.31.0
-	golang.org/x/sys v0.28.0
+	golang.org/x/crypto v0.35.0
+	golang.org/x/sys v0.30.0
 )
 
 require (
